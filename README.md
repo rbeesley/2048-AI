@@ -21,3 +21,17 @@ The better heuristics now give it a success rate of about 90% in my testing (on 
 3. ~~Evaluation tweaks. There are currently four heuristics. Change the weights between them, run a lot of test games and track statistics to find an optimal eval function.~~
 
 4. Comments and cleanup. It's pretty hacky right now but I've spent too much time already. There are probably lots of low-hanging fruit optimizations.
+
+### Further exploration
+
+1. Controls to set upper limit in powers of two. 2 - 4096,8192,16384,32768, etc.
+2. Ability to change grid size.
+3. Slider to control search depth.
+4. Store the result of multiple runs.
+5. Plot the distribution density of how many times the final tile appears in each type of location, accounting for symetery. 1:1=1(a) 2:2=1(a) 3:3=3(a,b/b2) 4:4=3(a,b/b2) 5:5=6(a,b,c/b2,bc/c2) 6:6=6(a,b,c/b2,bc/c2)
+7:7=10(a,b,c,d/b2,bc,bd/c2,cd/d2) 8:8=10(a,b,c,d/b2,bc,bd/c2,cd/d2) 9:9=15(a,b,c,d,e/b2,bc,bd,be/c2,cd,ce/d2,de/e2) 10:10=15(a,b,c,d,e/b2,bc,bd,be/c2,cd,ce/d2,de/e2) https://oeis.org/A008805
+6. When an auto-run wins or looses, it should automatically restart after a grace period.
+
+### Questions to answer
+1. Is there a correlation for winning, of the upper limit to the given grid size? Is there a maximum power of 2 tile per grid size? How to prove? 
+2. Using the default solver, how does the percentage chance of winning vary as a function of limit and grid size?
